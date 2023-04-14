@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>My Page</title>
+    <script>
+        function waitForTask() {
+        fetch('/my_view')  // replace with your view URL
+        .then(response => {
+            if (response.ok) {
+                window.location.href = '/info';  // replace with your redirect URL
+            } else {
+                setTimeout(waitForTask, 1000);
+            }
+        })
+        .catch(error => {
+            setTimeout(waitForTask, 1000);
+        });
+    }
+    </script>
+</head>
+<body onload="waitForTask()">
+    {% if result %}
+        <p>{{ result }}</p>
+    {% else %}
+        <p>Performing a long-running task...</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+<br><br>
+<h1> Welcome to the Main Page!</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" name="visualize">Visualize Triangles!</button>
+</form>
+<h3>Here are the data taken from our model:</h3>
+<h1>Validated Triangles:</h1>
+<ul>
+    {% for item in validated_triangles %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+<h1>Removed Triangles:</h1>
+<ul>
+    {% for item in removed_triangles %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+<h1>Mumber of removed SEACells is {{ len }}</h1>
+
+</body>
+</html>

@@ -2,7 +2,10 @@ from django.urls import path
 
 from . import views
 
-app_name = 'data'
+app_name = 'visualization'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('index/', views.index, name='run'),
+    path('info/', views.info, name='info'),
+    path('visual/', views.visual, name='visual'),
+    path('', views.upload, name='upload'),
 ]

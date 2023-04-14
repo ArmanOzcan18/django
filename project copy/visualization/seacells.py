@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import tkinter
 import pickle
+from visualization.data import Input
 
 matplotlib.use('TkAgg')
 
@@ -86,10 +87,8 @@ plt.title('Strength of top 5 strongest assignments')
 plt.xlabel('$n^{th}$ strongest assignment')
 plt.show()
 
-with open('model.pkl', 'wb') as f:  # open a text file
-    pickle.dump(model, f) # serialize the list
+input = Input(ad, model)
+with open('input.pkl', 'wb') as f:  # open a text file
+    pickle.dump(input, f) # serialize the list
 f.close()
 
-with open('ad.pkl', 'wb') as f:  # open a text file
-    pickle.dump(ad, f) # serialize the list
-f.close()

@@ -11,11 +11,11 @@ from visualization.data import Data
 
 matplotlib.use('TkAgg')
 
-with open('/Users/armanozcan/Desktop/project/visualization/model.pkl', 'rb') as f:
+with open('/Users/armanozcan/Desktop/project/visualization/pickles/model.pkl', 'rb') as f:
     model = pickle.load(f) # deserialize using load()
 f.close()
 
-with open('/Users/armanozcan/Desktop/project/visualization/ad.pkl', 'rb') as f:
+with open('/Users/armanozcan/Desktop/project/visualization/pickles/ad.pkl', 'rb') as f:
     ad = pickle.load(f) # deserialize using load()
 f.close()
 
@@ -142,7 +142,7 @@ print((np.trace(power) - 2*sum_degree_squared + sum_degree)/8)
 
 removed_triangles = set(nn_triangles).difference(set(confirmed_triangles))
 
-data = Data(confirmed_triangles, removed_triangles, difference)
+data = Data(SEACell_ad, confirmed_triangles, removed_triangles, difference)
 with open('data.pkl', 'wb') as f:  # open a text file
     pickle.dump(data, f) # serialize the list
 f.close()
